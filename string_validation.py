@@ -107,6 +107,11 @@ def validateString(string):
                     print("Rule 5 passed...\nOutcome: The input string is valid.\n")
                     return True
                 menu()
+
+    #no numbers in string
+    if currentNumber == "":
+        print("Rule 5 passed...\nOutcome: The input string is valid.\n")
+        menu()
                 
 
                  
@@ -133,7 +138,6 @@ def menu():
     else:
         print("Enter either 1 or 2. Please try again.\n")
         menu()
-
 
 
 
