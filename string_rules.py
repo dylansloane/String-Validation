@@ -70,6 +70,7 @@ def rule4(string):
 def rule5(string):
     #5. check if numbers in the string below 13 are spelled out
     currentNumber = ""
+    numbers = []
 
     #iteration
     for character in string:
@@ -80,19 +81,28 @@ def rule5(string):
             #append currentNumber variable
             currentNumber += character
         
+        #if the character is not a digit
         else:
 
-            #check the final current number is not empty
-            if currentNumber != "":
+            #add number to array
+            try:
+                numbers.append(int(currentNumber))
+            except ValueError:
+                pass
 
-                #check if the number is less than 13
-                if int(currentNumber) < 13:
-
-                    #invalid
-                    return False
+            #reassign current number as empty
+            currentNumber = ""
                 
-                #valid
-                else:
-                    return True
-    if currentNumber == "":
+    #valid boolean
+    valid = True
+
+    #return true if there are no numbers in the string
+    if len(numbers) == 0:
         return True
+    
+    #check the array for any numbers below 13
+    else:
+        for i in range(13):
+            if i in numbers:
+                valid = False
+        return valid
